@@ -1,0 +1,46 @@
+.nav {
+    grid-area: nav;
+    background-color: #b8e994;
+    min-height: 575px;
+    max-height: auto;
+    box-shadow: 0 8px 6px silver;
+}
+
+.nav a div {
+    margin: 15px;
+    padding: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #333
+}
+
+.nav a div:hover, .nav a.active div {
+    background-color: #78e08f;
+    box-shadow: 2px 5px 5px #6ab04c;
+}
+
+.nav hr {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    background-color: #333;
+    border: 1px solid #333;
+}
+
+.nav a:last-child {
+    margin-top: 35px;
+}
+.friends_p {
+    width: 90%;
+    height: 50%;
+    display: block;
+}
+
+.friends_img {
+    width: 100%;
+    height: 100%;
+}

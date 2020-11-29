@@ -1,0 +1,34 @@
+
+.header {
+    grid-area: header;
+    background-color: #6ab04c;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 85%;
+    width: 5%;
+    margin: 5px;
+    float: left;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.login_block {
+    width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_block a {
+    text-decoration: none;
+    color: #333;
+}
+
+

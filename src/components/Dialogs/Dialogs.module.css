@@ -1,0 +1,78 @@
+.dialogs_block {
+    grid-area: cont;
+    background-color: ghostwhite;
+    min-height: 575px;
+    max-height: auto;
+    box-shadow: 0 8px 6px silver;
+}
+
+.dialogs_list {
+    min-height: 650px;
+    max-height: auto;
+    float: left;
+    width: 30%;
+    background-color: #ecf0f1;
+    overflow-y: auto;    
+}
+
+.dialogs_list a {
+    text-decoration: none;
+    color: #333;
+}
+
+.search_input {
+    float: left;
+    display: block;
+    width: 99%;
+    height: 2vh;
+}
+
+.messages {
+    min-height: 650px;
+    max-height: auto;
+    float: right;
+    margin-right: 0.3vw;
+    width: 69%
+}
+
+.message_title {
+    width: 100%;
+    height: 7vh;
+    background-color: #ecf0f1;
+    border: 1px solid silver;
+}
+
+.message_title p {
+    font-size: 1.3vw;
+    margin: 5px;
+    text-align: center;
+}
+
+.message_title p:last-child {
+    font-size: 0.75vw;
+    color: grey;
+}
+
+.messages_window {
+    height: 65vh;
+    overflow-y: auto;
+}
+
+.new_message {
+    position: relative;
+    height: 6vh;
+    border-top: 1px solid silver;
+}
+
+.add_new_message {
+    border: 0;
+    background-color: darkgray;
+    padding: 1vh;
+    color: #fafafa;
+    border-radius: 1vh;
+    transition: 0.3s;
+}
+
+.add_new_message:hover {
+    background-color: gray;
+}

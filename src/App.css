@@ -1,0 +1,21 @@
+body {
+    padding: 10px;
+    margin: 0;
+    font-family: 'Bahnschrift', sans-serif;
+    color: #333;
+    background-image: url(https://i.gifer.com/origin/6b/6b0f19174a89fbe967cbdec6a285344a_w200.gif);
+}
+
+.app-wrapper {
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 5px;
+    grid-template-areas: 
+        "header header"
+        "nav cont";
+    ;
+    width: 80%;
+    margin: 15px auto;
+}
+

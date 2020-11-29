@@ -1,0 +1,76 @@
+.users {
+    grid-area: cont;
+    height: auto;
+    background-color: #f1f2f6;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.users_item {
+    width: 100%;
+    height: 200px;
+    background-color: lightgrey;
+    margin-bottom: 25px;
+}
+
+.left_block {
+    float: left;
+    width: 150px;
+    height: 100%;
+    background-color: rgb(190, 190, 190);
+}
+
+.right_block {
+    float: left;
+    width: calc(100% - 150px);
+    height: 100%;
+}
+
+.user_inf {
+    display: flex;
+    justify-content: space-around;
+}
+
+.name, .country, .city {
+    padding-top: 25px;
+}
+
+.name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.user_inf p {
+    margin: 0;
+}
+
+.user_status {
+    padding-top: 75px;
+    padding-left: 85px;
+}
+
+.user_img {
+    width: 150px;
+    height: 150px;
+}
+
+.follow_button, .unfollow_button {
+    display: block;
+    margin: 10px auto;
+    width: 110px;
+    height: 25px;
+    padding: 3px
+}
+
+.follow_button {
+    background: #78e08f;
+    border: 1px solid #6ab04c;
+}
+
+.unfollow_button {
+    background: rgb(218, 45, 45);
+    border: 1px solid red;
+}
+

@@ -1,0 +1,29 @@
+.posts {
+    display: block;
+    float: left;
+}
+
+.my_posts {
+    font-size: 2vw;
+    padding-left: 40px;
+}
+
+.add_post {
+    display: block;
+    float: right;
+    margin-top: 15px;
+    margin-right: 100px;
+    width: 75px;
+    height: 25px;
+    font-family: 'Bahnschrift', sans-serif;
+    background-color: #6ab04c;
+    color: white;
+    border: 0;
+    box-shadow: 2px 3px 3px silver;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.add_post:hover {
+    background-color: #badc58;
+}

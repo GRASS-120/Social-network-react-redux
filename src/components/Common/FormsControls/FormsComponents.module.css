@@ -1,0 +1,43 @@
+.new_posts_text input {
+    display: block;
+    margin-left: 50px;
+    width: 84%;
+    height: 40px;
+    padding: 5px;
+    background-color: #dfe4ea;
+    border: 0;
+    box-shadow: 2px 5px 5px silver;
+    transition: 0.3s;
+    font-family: 'Bahnschrift', sans-serif;
+    border: 1px solid silver
+}
+
+.new_message_text input {
+    width: 70%;
+    padding: 1vh;
+    margin: 1.3vh 1.3vh 1.3vh 8vh;
+}
+
+.login input {
+    width: 250px;
+    height: 25px;
+}
+
+.new_posts_text span, .new_message_text span, .login span {
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}
+
+.new_posts_text.error input, .new_message_text.error input, .login.error input {
+    border: 1px solid red;
+}
+
+.new_posts_text.error span, .new_message_text.error span, .login.error span {
+    color: red;
+}
+
+.formSummaryError {
+    border: red 1px solid;
+    color: red;
+}
