@@ -1,4 +1,4 @@
-import * as axios from 'axios'
+import * as axios from 'axios';
 
 // Общие настройки для запроса
 const instance = axios.create({
@@ -6,8 +6,8 @@ const instance = axios.create({
     withCredentials: true,  // ? авторизован ли пользователь ? // withCredentials - позволяет делать кроссдоменные запросы
     headers: {
         'API-KEY': 'c966373d-cc4d-4199-ad3b-01ba84f6d32d'  // подтверждение для всех запросов, кроме get()
-        }  
-})
+    }  
+});
 
 export const usersAPI = {
 
@@ -15,7 +15,7 @@ export const usersAPI = {
         return instance.get( `users?page=${currentPage}&count=${pageSize}`)
         .then(Response => { return Response.data })
     }
-}
+};
 
 export const followAPI = {
 
@@ -28,7 +28,7 @@ export const followAPI = {
         return instance.delete( `follow/${id}`)
         .then(Response => { return Response.data })
     }
-}
+};
 
 export const authAPI = {
 
@@ -46,7 +46,7 @@ export const authAPI = {
         return instance.delete("/auth/login")
         .then(Response => { return Response.data })
     }
-}
+};
 
 export const profileAPI = {
     
@@ -63,5 +63,15 @@ export const profileAPI = {
     updateStatus(status){
         return instance.put(`/profile/status`, {status: status})
         .then(Response => { return Response.data })
+    },
+
+    savePhoto(photoFile){
+        let formData = new FormData()
+        formData.append('image', photoFile)
+
+        return instance.put(`/profile/photo`, formData, {
+            headers: {'Content-Type': 'multipart/form-data'}  // для медиафайлов?
+        })
+        .then(Response => { return Response.data })
     }
-}
+};

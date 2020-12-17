@@ -3,6 +3,8 @@ import a from './User.module.css'
 import PostsContainer from './Posts/PostsContainer';
 import Preloader from '../../Common/Preloader/Preloader';
 import UserStatusWithHooks from './UserStatusWithHooks';
+import userPhoto from '../../../assets/img/6xQ6_ADKgiQ.jpg';
+import UserStatus from './UserStatus';
 
 let User = (props) => {
 
@@ -10,26 +12,34 @@ let User = (props) => {
       return <Preloader />
     }
 
-    return <div className={a.user}>
+    let onMainPhotoSelected = (e) => {
+      if(e.target.files.length){
+        props.savePhoto(e.target.files[0])
+      }
+    };
 
-      <div className = {a.user__avatar}>
-        <img src={props.profile.photos.large}></img>
-      </div>
-      <div className={a.user__inf}>
-        <p className={a.user__name}>{props.profile.fullName}</p>
+    return (
+      <div className={a.user}>
+        <div className = {a.user__avatar}>
+          <img src={props.profile.photos.large || userPhoto} alt="img"></img>
+        </div>
+        <div>
+          {props.isOwner && <input type="file" onChange={onMainPhotoSelected}/>}    
+        </div>
+        <div className={a.user__inf}>
+          <p className={a.user__name}>{props.profile.fullName}</p>
 
-        <UserStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus}/>
+          <UserStatus status={props.status} updateUserStatus={props.updateUserStatus} isOwner={props.isOwner}/>
 
-        {props.profile.lookingForAJob == true ? <p className={a.user__date_birth}>{props.profile.lookingForAJobDescription}</p> : null}
+          <p className={a.user__date_birth}>{props.profile?.lookingForAJobDescription}</p>
+          <p className={a.user__city}>City: New York🗽</p>
+          <p className={a.user__education}>Education: Cambridge, Software Engineer👨‍🎓</p>
+        </div>
+        <hr></hr>
 
-        <p className={a.user__city}>City: New York🗽</p>
-        <p className={a.user__education}>Education: Cambridge, Software Engineer👨‍🎓</p>
-      </div>
-      <hr></hr>
-
-     <PostsContainer postsPage={props.postsPage} dispatch={props.dispatch}/>
+        <PostsContainer postsPage={props.postsPage} dispatch={props.dispatch}/>
      
-    </div>
-}
+      </div>
+  )};
 
-export default User
+export default User;

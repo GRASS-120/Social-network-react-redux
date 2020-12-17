@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import User from './User';
-import * as axios from 'axios'
 import { connect } from 'react-redux';
-import { setUserProfile, getUserStatus, updateUserStatus } from '../../../redux/posts-reducer';
+import { setUserProfile, getUserStatus, updateUserStatus, savePhoto } from '../../../redux/posts-reducer';
 import { withRouter, Redirect } from 'react-router-dom';
-import withAuthRedirect from '../../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
 const UserContainer = (props) => {
@@ -22,11 +20,18 @@ const UserContainer = (props) => {
     
         props.setUserProfile(userId);
         props.getUserStatus(userId);
-  }, [props.authUserId])
+  }, [props]);
 
   return (
-      <User {...props} profile={props.profile} status={props.status} updateUserStatus={props.updateUserStatus}/>
-  );
+      <User
+        {...props}
+        isOwner={!props.match.params.userId}
+        profile={props.profile}
+        status={props.status}
+        updateUserStatus={props.updateUserStatus}
+        savePhoto={props.savePhoto}
+        />
+  )
 };
 
 let mapStateToProps = (state) => ({
@@ -34,10 +39,16 @@ let mapStateToProps = (state) => ({
   status: state.postsPage.status,
   authUserId: state.auth.id,
   isAuth: state.auth.isAuth
-})
+});
 
 export default compose(
-  connect(mapStateToProps, {setUserProfile, getUserStatus, updateUserStatus}),
+  connect(mapStateToProps,
+    {
+      setUserProfile,
+      getUserStatus,
+      updateUserStatus,
+      savePhoto
+    }),
   withRouter,
   // withAuthRedirect,
-)(UserContainer)
+)(UserContainer);

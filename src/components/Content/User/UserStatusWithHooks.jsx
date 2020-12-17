@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import a from './User.module.css'
+import React, { useEffect, useState } from 'react';
+import a from './User.module.css';
 
 export const UserStatusWithHooks = React.memo(props => {
 
@@ -8,30 +8,27 @@ export const UserStatusWithHooks = React.memo(props => {
 
     useEffect(() => {
         setStatus(props.status)
-    }, [props.status])
+    }, [props.status]);
 
     let activeEditMode = () => {
         setEditMode(true)
-    }
+    };
 
     let deactiveEditMode = () => {
         setEditMode(false)
         props.updateUserStatus(status)
-    }
+    };
 
     let onStatusChange = (e) => {
         setStatus(e.currentTarget.value) 
-    }
-
-    console.log('RENDER')
-    console.log(props)
+    };
 
     return (
         <div>
-            {!editMode &&
-                <span className={a.user__status} onDoubleClick={activeEditMode} >Status: {props.status || "No status"}</span>
+            {!editMode && props.isOwner &&
+                <span className={a.user__status} onDoubleClick={activeEditMode}>Status: {props.status || "No status"}</span>
             }
-            { editMode &&
+            { editMode && props.isOwner &&
                 <input autoFocus={true} onBlur={deactiveEditMode} onChange={onStatusChange} value={status} type="text"/>
             }        
         </div>
