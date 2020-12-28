@@ -2,14 +2,15 @@
 .header {
     grid-area: header;
     background-color: #6ab04c;
+    background-size: 10%;
+    background-image: url(https://freepngimg.com/thumb/snowflakes/12-snowflake-png-image-thumb.png);
     display: flex;
     justify-content: space-between;
 }
 
 .logo {
-    height: 85%;
-    width: 5%;
-    margin: 5px;
+    height: 60px;
+    width: 85px;
     float: left;
 }
 
@@ -22,8 +23,16 @@
     width: 100px;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.login_ing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
 }
 
 .login_block a {
@@ -31,4 +40,10 @@
     color: #333;
 }
 
-
+.login_button {
+    display: block;
+    width: auto;
+    height: 25px;
+    padding: 3px;
+    font-family: 'Bahnschrift', sans-serif;
+}

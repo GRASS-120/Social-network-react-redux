@@ -1,0 +1,12 @@
+.user__sidebar {
+    width: 225px;
+    height: auto;
+    background-color: #f1f2f6;
+    margin-left: 10px;
+    grid-area: sidebar;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 7px;
+    gap: 10px;
+}

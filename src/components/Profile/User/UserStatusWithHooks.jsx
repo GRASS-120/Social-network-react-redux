@@ -32,7 +32,7 @@ export const UserStatusWithHooks = React.memo(props => {
                 <input autoFocus={true} onBlur={deactiveEditMode} onChange={onStatusChange} value={status} type="text"/>
             }        
         </div>
-    )
+    );
 });
 
 export default UserStatusWithHooks;

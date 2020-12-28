@@ -1,11 +1,17 @@
 .pagination {
     width: 750px;
     height: auto;
-    margin: 100px auto;
+    margin: 25px auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding-bottom: 75px;
+    padding-bottom: 25px;
+}
+
+.pagination i {
+    font-size: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .pagination span {

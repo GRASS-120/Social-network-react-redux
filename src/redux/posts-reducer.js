@@ -1,4 +1,5 @@
 import { profileAPI } from "../API/api";
+import { stopSubmit } from 'redux-form';
 
 const ADD_POST = 'posts/ADD-POST'
 const SET_USER_PROFILE = 'posts/SET_USER_PROFILE'
@@ -10,13 +11,13 @@ let initialState = {  // начальное значение STATE
     posts: [
         {
             id: 1,
-            message: "Hi! Anime poor💩🖕",
-            likes_count: 1,
+            message: "Happy New Year 2021!🎄",
+            likes_count: 231,
         },
         {
             id: 2,
             message: "DO YOU UNDERSTAAAAAAAAAAANDO?",
-            likes_count: 231,
+            likes_count: 111,
         },
     ],
     profile: null,
@@ -33,6 +34,8 @@ export const postsReducer = (state = initialState, action) => {
                 message: action.message,
                 likes_count: 0
             }
+
+            console.log(newPost)
 
             return {
                 ...state,
@@ -96,6 +99,31 @@ export const savePhoto = (file) => {
         
         if (data.resultCode === 0) {
             dispatch(savePhotoSuccess(data.data.photos))
+        }
+    }
+};
+
+export const saveProfile = (profile) => {
+    return async (dispatch, getState) => {
+        const userId = getState().auth.id
+        let data = await profileAPI.saveProfile(profile)
+        
+        if (data.resultCode === 0) {
+            dispatch(setUserProfile(userId))
+        } else {
+            let errorMessage = data.messages.length > 0 ? data.messages[0] : "Some error"
+            dispatch(stopSubmit('profile_form', {_error: errorMessage}))
+
+            // let errorMessage = data.messages.length > 0 ? data.messages[0] : "Some error"
+
+            // let regExp = /\(([^)]+)\)/;
+            // let matches = regExp.exec(errorMessage);
+            // let errorFlow = matches[1].split("->")[1]
+            // console.log(errorFlow)
+
+            // dispatch(stopSubmit('profile_form', {"contacts": {[`${errorFlow}`]: errorMessage}}))
+
+            return Promise.reject(data.messages[0])
         }
     }
 };

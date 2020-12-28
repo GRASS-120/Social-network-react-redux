@@ -1,6 +1,6 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import style from './User.module.css'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import style from './User.module.css';
 import userPhoto from '../../../assets/img/6xQ6_ADKgiQ.jpg';
 
 let User = ({u, followingProgress, follow, unfollow}) => {
@@ -8,7 +8,7 @@ let User = ({u, followingProgress, follow, unfollow}) => {
         <div className={style.users_item}>
             <div className={style.left_block}>
                 <NavLink to={`/profile/${u.id}`}>
-                    <img src={ u.photos.small || userPhoto} className={style.user_img}/>
+                    <img alt="user" src={ u.photos.small || userPhoto} className={style.user_img}/>
                 </NavLink>
                 { u.followed ?
 
@@ -22,15 +22,13 @@ let User = ({u, followingProgress, follow, unfollow}) => {
             <div className={style.right_block}>
                 <div className={style.user_inf}>
                     <p className={style.name}>{u.name}</p>
-                    <p className={style.country}>{'u.location.country'}</p>
-                    <p className={style.city}>{'u.location.city'}</p>
                 </div>
                 <div className={style.user_status}>
-                    <p>{u.status !== null ? u.status : 'status'}</p>
+                    <p>status: {u.status !== null ? u.status : 'none'}</p>
                 </div>
             </div>
         </div>
     )
-}
+};
 
-export default User
+export default User;

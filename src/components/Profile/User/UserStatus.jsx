@@ -1,5 +1,5 @@
 import React from 'react';
-import a from './User.module.css';
+import style from './User.module.css';
 
 class UserStatus extends React.Component {
 
@@ -37,10 +37,10 @@ class UserStatus extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={style.user__status_block}>
                 {this.state.editMode && this.props.isOwner ?    
-                    <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactiveEditMode} type="text" value={this.state.status}/>
-                    : <span onDoubleClick={this.activeEditMode} className={a.user__status}>Status: {this.props.status || "No status"}</span>
+                    <input className={style.user__status_input} onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactiveEditMode} type="text" value={this.state.status}/>
+                    : <span onDoubleClick={this.activeEditMode} className={style.user__status}>Status: {this.props.status || "No status"}</span>
                 } 
             </div>
         );

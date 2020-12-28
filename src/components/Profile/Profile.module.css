@@ -1,0 +1,6 @@
+.profile {
+    grid-area: cont;
+    background-color: #f5f6fa;
+    box-shadow: 0 8px 6px silver;
+    padding: 25px 15px;
+}

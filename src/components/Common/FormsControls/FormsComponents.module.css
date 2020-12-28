@@ -39,5 +39,19 @@
 
 .formSummaryError {
     border: red 1px solid;
-    color: red;
+    background-color: #d63031;
+    width: 90%;
+    padding: 15px;
+    text-align: center;
+    margin: 50px auto 50px auto;
+    color: white;
+}
+
+.profile_input input {
+    width: 250px;
+    height: 20px;
+    margin: 15px;
+    padding: 5px;
+    font-size: 20px;
+    font-family: 'Bahnschrift', sans-serif;
 }

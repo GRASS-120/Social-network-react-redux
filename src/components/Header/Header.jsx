@@ -1,5 +1,5 @@
 import React from 'react';
-import a from './Header.module.css';
+import style from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 
 // как работают названия классов в css модулях
@@ -10,14 +10,17 @@ let classes = {
 
 const Header = (props) => {
     return (
-        <header className={a.header}>
-            <div className={a.logo}>
-                <img src="https://lh3.googleusercontent.com/proxy/0ClcIHkUHKVfo8FnfhxnpaOKE-A1SpHH6heAMdH7rprogZmo9BDQbekNl3BvQt-mRS18fQ6y4obnqNXRlLNYre3p7jJ6_1hpYTXwkXnEgm7LZ7OB0ZI"></img>
+        <header className={style.header}>
+            <div className={style.logo}>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png" alt="logo"></img>
             </div> 
-            <div className={a.login_block}>
+            <div className={style.login_block}>
                 { props.isAuth === false ?
                     <NavLink to='/login' className="login_text">Login</NavLink> 
-                :   <div>{props.login}<button onClick={props.logout}>logout</button></div> }
+                :   <div className={style.login_ing}>
+                        <NavLink to='/profile' className="login_text">{props.login}</NavLink>
+                        <button className={style.login_button} onClick={props.logout}>logout</button>
+                    </div> }
                 
             </div>
         </header>

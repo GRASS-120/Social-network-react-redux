@@ -73,5 +73,10 @@ export const profileAPI = {
             headers: {'Content-Type': 'multipart/form-data'}  // для медиафайлов?
         })
         .then(Response => { return Response.data })
+    },
+
+    saveProfile(profile){
+        return instance.put(`/profile`, profile)
+        .then(Response => { return Response.data })
     }
 };

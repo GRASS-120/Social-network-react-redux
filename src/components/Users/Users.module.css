@@ -1,0 +1,14 @@
+.users {
+    position: relative;
+    grid-area: cont;
+    height: auto;
+    background-color: #f5f6fa;
+}
+
+.users__list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 35px;
+    gap: 35px;
+}

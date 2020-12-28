@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import User from './User';
 import { connect } from 'react-redux';
-import { setUserProfile, getUserStatus, updateUserStatus, savePhoto } from '../../../redux/posts-reducer';
+import { setUserProfile, getUserStatus, updateUserStatus, savePhoto, saveProfile } from '../../../redux/posts-reducer';
 import { withRouter, Redirect } from 'react-router-dom';
 import { compose } from 'redux';
 
@@ -30,7 +30,8 @@ const UserContainer = (props) => {
         status={props.status}
         updateUserStatus={props.updateUserStatus}
         savePhoto={props.savePhoto}
-        />
+        saveProfile={props.saveProfile}
+      />
   )
 };
 
@@ -47,7 +48,8 @@ export default compose(
       setUserProfile,
       getUserStatus,
       updateUserStatus,
-      savePhoto
+      savePhoto,
+      saveProfile,
     }),
   withRouter,
   // withAuthRedirect,

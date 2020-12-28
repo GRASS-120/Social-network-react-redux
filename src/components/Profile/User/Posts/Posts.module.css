@@ -1,18 +1,31 @@
 .posts {
-    display: block;
-    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: posts;
+    justify-content: center;
+}
+
+.add_post__block {
+    margin: 50px auto;
+    border-top: 1px solid silver;
+    width: 575px;
+}
+
+.add_post__form {   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
 .my_posts {
     font-size: 2vw;
-    padding-left: 40px;
+    text-align: center;
 }
 
 .add_post {
     display: block;
     float: right;
-    margin-top: 15px;
-    margin-right: 100px;
     width: 75px;
     height: 25px;
     font-family: 'Bahnschrift', sans-serif;

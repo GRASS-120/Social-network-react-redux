@@ -6,17 +6,20 @@ import User from './User/User';
 
 let Users = ({totalUsersCount, pageSize, currentPage, onPageChange, followingProgress, follow, unfollow, ...props}) => {
 
-    return <div className={style.users}>
+    return (
+        <div className={style.users}>
 
-    { props.isFetching ? <Preloader/> : null }
+            { props.isFetching ? <Preloader/> : null }
 
-     {
-        props.users.map(u => <User key={u.id} u={u} followingProgress={followingProgress} follow={follow} unfollow={unfollow}/>)
-    }
+            <div className={style.users__list}>
+                {
+                    props.users.map(u => <User key={u.id} u={u} followingProgress={followingProgress} follow={follow} unfollow={unfollow}/>)
+                }
+            </div>
 
-    <Paginator totalItemCount={totalUsersCount} pageSize={pageSize} currentPage={currentPage} onPageChange={onPageChange}/>
+            <Paginator totalItemCount={totalUsersCount} pageSize={pageSize} currentPage={currentPage} onPageChange={onPageChange}/>
 
-</div>
-}
+        </div>
+    )};
 
-export default Users
+export default Users;

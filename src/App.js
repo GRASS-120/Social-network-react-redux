@@ -7,7 +7,7 @@ import { withSuspense } from './hoc/withSuspense';
 import store from './redux/redux-store';
 import './App.css';
 
-import Nav from './components/Nav/Nav';
+import Nav from './components/Nav/Nav.jsx';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
@@ -15,15 +15,15 @@ import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
 import Preloader from './components/Common/Preloader/Preloader';
 
-const Content = lazy(() => import('./components/Content/Content'))
+const Profile = lazy(() => import('./components/Profile/Profile'));
 const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
-const UsersContainer = lazy(() => import('./components/Users/UsersContainer'))
+const UsersContainer = lazy(() => import('./components/Users/UsersContainer'));
 
 class App extends React.Component {
 
   componentDidMount() {
     this.props.initializeApp()
-  }
+  };
 
   render(){
 
@@ -34,7 +34,7 @@ class App extends React.Component {
         <div className="app-wrapper">
           <HeaderContainer/>   
           <Nav/>
-              <Route path="/profile/:userId?" render={withSuspense(Content)}/> 
+              <Route path="/profile/:userId?" render={withSuspense(Profile)}/> 
               <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
               <Route path="/news" render={ () => <News/> }/>
               <Route path="/music" render={ () => <Music/> }/>
@@ -45,11 +45,11 @@ class App extends React.Component {
       )
     
   }  
-}
+};
 
 let mapStateToProps = (state) => ({
   initialized: state.app.initialized
-})
+});
 
 // Оборачиваем в withRouter для улучшения роутинга
 let AppContainer = compose(
@@ -57,7 +57,7 @@ let AppContainer = compose(
   connect(mapStateToProps, {initializeApp})
 )(App);
 
-let SocialNetworkApp = (props) => {
+let SocialNetworkApp = () => {
   return (
     <BrowserRouter>
       <Provider store={store}>
@@ -65,6 +65,6 @@ let SocialNetworkApp = (props) => {
       </Provider>
     </BrowserRouter>
   )
-}
+};
 
-export default SocialNetworkApp
+export default SocialNetworkApp;
