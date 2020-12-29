@@ -1,30 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { login } from '../../redux/auth-reducer';
+import { login, reloadCaptcha } from '../../redux/auth-reducer';
 import LoginReduxForm from './LoginForm';
+import style from './Login.module.css';
 
 const Login = (props) => {
 
     const onSubmit = (formData) => {
         props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
-        console.log(formData.captcha)
     };
 
     if (props.isAuth === true){ 
         return <Redirect to="/profile"/>
+        
     } else {
         return (
-            <div>
-                <h1>Login</h1>
-                <LoginReduxForm onSubmit={onSubmit}/>
+            <div className={style.login}>
+                <h1 className={style.login__title}>Login</h1>
+                <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} reloadCaptcha={props.reloadCaptcha}/>
             </div>
         ) 
     }
 }
 
 let mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl
 });
 
-export default connect(mapStateToProps, {login: login})(Login);
+export default connect(mapStateToProps, {login, reloadCaptcha})(Login);

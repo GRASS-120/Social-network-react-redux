@@ -1,0 +1,33 @@
+.login {
+    grid-area: cont;
+    background-color: #f5f6fa;
+    box-shadow: 0 8px 6px silver;
+    padding: 75px;
+}
+
+.login__title {
+    font-size: 35px;
+}
+
+.login__item {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.login__button {
+    display: block;
+    width: 100px;
+    height: 30px;
+    font-family: 'Bahnschrift', sans-serif;
+    margin: 35px 0 0 80px;
+}
+
+.login__new_captcha {
+    display: block;
+    width: 100px;
+    height: 20px;
+    font-family: 'Bahnschrift', sans-serif;
+    margin-bottom: 15px;
+}

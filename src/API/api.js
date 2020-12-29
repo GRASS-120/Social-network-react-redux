@@ -12,7 +12,7 @@ const instance = axios.create({
 export const usersAPI = {
 
     getUsers(currentPage=1, pageSize=10){
-        return instance.get( `users?page=${currentPage}&count=${pageSize}`)
+        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
         .then(Response => { return Response.data })
     }
 };
@@ -37,7 +37,7 @@ export const authAPI = {
         .then(Response => { return Response.data })
     },
 
-    loginRequest(email, password, rememberMe=false, captcha){
+    loginRequest(email, password, rememberMe=false, captcha=null){
         return instance.post("/auth/login", {email, password, rememberMe, captcha})
         .then(Response => { return Response.data })
     },
@@ -47,6 +47,13 @@ export const authAPI = {
         .then(Response => { return Response.data })
     }
 };
+
+export const securityAPI = {
+    getCaptchaUrlRequest(){
+        return instance.get("/security/get-captcha-url")
+        .then(Response => { return Response.data})
+    }
+}
 
 export const profileAPI = {
     
