@@ -71,15 +71,24 @@ export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO_SUCCESS, photos})
 
 export const setUserProfile = (userId) => {
     return async (dispatch) => {
-        let data = await profileAPI.profileRequest(userId)
-        dispatch(setUserProfileSuccess(data));
+        try {
+            let data = await profileAPI.profileRequest(userId)
+            dispatch(setUserProfileSuccess(data));
+        } catch(error){
+            // alert(error.message)
+        } 
     }
 };
 
 export const getUserStatus = (userId) => {
     return async (dispatch) => {
-        let data = await profileAPI.profileStatus(userId)
-        dispatch(setUserStatus(data))
+        try {
+            let data = await profileAPI.profileStatus(userId)
+            dispatch(setUserStatus(data))
+        } catch(error){
+            // alert(error.message)
+        }
+        
     }
 };
 
