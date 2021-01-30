@@ -6,18 +6,23 @@ const Nav = ( {navPage} ) => {
 
     return (
         <nav className={a.nav}>
+          <NavLink to="/profile" activeClassName={a.active}>
+            <div>Profile❄️</div>
+          </NavLink>
+        
+          <NavLink to="/dialogs" activeClassName={a.active}>
+            <div>Messages✉️</div>
+          </NavLink>
+        
+          <NavLink to="/news" activeClassName={a.active}>
+            <div>News📃</div>
+          </NavLink>
 
-            <NavLink to="/profile" activeClassName={a.active}>
-              <div>Profile❄️</div>
+          <div>
+            <NavLink to="/music" activeClassName={a.active}>
+              <div>Videos🎥</div>
             </NavLink>
-        
-            <NavLink to="/dialogs" activeClassName={a.active}>
-              <div>Messages✉️</div>
-            </NavLink>
-        
-            <NavLink to="/news" activeClassName={a.active}>
-              <div>News📃</div>
-            </NavLink>
+          </div>
 
           <div>
             <NavLink to="/music" activeClassName={a.active}>
@@ -38,7 +43,6 @@ const Nav = ( {navPage} ) => {
               <div>Settings⚙️</div>
             </NavLink>
           </div>  
-
       </nav>
     );
 };
