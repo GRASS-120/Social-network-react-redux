@@ -1,21 +1,29 @@
 {
-    "extends": ["airbnb", "prettier", "plugin:react/recommended"],
-    "plugins": ["prettier", "react"],
-    "rules": {
-        "prettier/prettier": ["error", { "endOfLine": "auto" }],
-        "spaced-comment": "off",
-        "no-console": "warn",
-        "consistent-return": "off",
-        "func-names": "off",
-        "object-shorthand": "off",
-        "no-process-exit": "off",
-        "no-param-reassign": "off",
-        "no-return-await": "off",
-        "no-underscore-dangle": "off",
-        "class-methods-use-this": "off",
-        "prefer-destructuring": ["error", { "object": true, "array": false }],
-        "no-unused-vars": ["error", { "argsIgnorePattern": "req|res|next|val" }],
-        "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error",
-    }
+  "extends": ["airbnb", "prettier", "plugin:react/recommended"],
+  "plugins": ["prettier", "react"],
+  "rules": {
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "spaced-comment": "off",
+    "no-console": "warn",
+    "consistent-return": "off",
+    "func-names": "off",
+    "object-shorthand": "off",
+    "no-process-exit": "off",
+    "no-param-reassign": "off",
+    "no-return-await": "off",
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off",
+    "prefer-destructuring": ["error", { "object": true, "array": false }],
+    "no-unused-vars": ["error", { "argsIgnorePattern": "req|res|next|val" }],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+
+    "arrow-body-style": ["error", "as-needed"],
+    "no-undef": "off",
+    "react/prop-types": 0,
+    "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
+    "react/display-name": "off",
+    "import/prefer-default-export": "off"
+    // "import/parser": "babel-eslint"
   }
+}

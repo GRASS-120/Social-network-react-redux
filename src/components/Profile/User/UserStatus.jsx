@@ -2,49 +2,61 @@ import React from 'react';
 import style from './User.module.css';
 
 class UserStatus extends React.Component {
+  state = {
+    editMode: false,
+    status: this.props.status,
+  };
 
-    state = {
-        editMode: false,
-        status: this.props.status
-    };
+  activeEditMode = () => {
+    this.setState({
+      editMode: true,
+    });
+  };
 
-    activeEditMode = () => {
-        this.setState({
-            editMode: true
-        })
-    };
+  deactiveEditMode = () => {
+    this.setState({
+      editMode: false,
+    });
+    this.props.updateUserStatus(this.state.status);
+  };
 
-    deactiveEditMode = () => {
-        this.setState({
-            editMode: false
-        })
-        this.props.updateUserStatus(this.state.status)
-    };
+  onStatusChange = (e) => {
+    this.setState({
+      status: e.currentTarget.value,
+    });
+  };
 
-    onStatusChange = (e) => {
-        this.setState({
-            status: e.currentTarget.value
-        })
-    };
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.status !== this.props.status) {
+      this.setState({
+        status: this.props.status,
+      });
+    }
+  }
 
-    componentDidUpdate(prevProps, prevState) {
-        if(prevProps.status !== this.props.status){
-            this.setState({
-                status: this.props.status
-            })
-        }
-    };
-
-    render() {
-        return (
-            <div className={style.user__status_block}>
-                {this.state.editMode && this.props.isOwner ?    
-                    <input className={style.user__status_input} onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactiveEditMode} type="text" value={this.state.status}/>
-                    : <span onDoubleClick={this.activeEditMode} className={style.user__status}>Status: {this.props.status || "No status"}</span>
-                } 
-            </div>
-        );
-    };
-};
+  render() {
+    return (
+      <div className={style.user__status_block}>
+        {this.state.editMode && this.props.isOwner ? (
+          <input
+            className={style.user__status_input}
+            onChange={this.onStatusChange}
+            autoFocus={true}
+            onBlur={this.deactiveEditMode}
+            type="text"
+            value={this.state.status}
+          />
+        ) : (
+          <span
+            onDoubleClick={this.activeEditMode}
+            className={style.user__status}
+          >
+            Status: {this.props.status || 'No status'}
+          </span>
+        )}
+      </div>
+    );
+  }
+}
 
 export default UserStatus;
