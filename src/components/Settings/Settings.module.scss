@@ -1,0 +1,48 @@
+@mixin font_default($size, $weight: normal, $color: #333) {
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+}
+
+@mixin hovered_list_item($trans: 0.2s easy all, $cursor: pointer) {
+  transition: $trans;
+  cursor: $cursor;
+}
+
+p {
+  margin: 0;
+}
+
+.settings {
+  grid-area: cont;
+  background-color: #f1f2f6;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex: 1fr 3fr;
+
+  &__menu {
+    background-color: #f1f2f6;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+
+    &_item {
+      padding: 10px 0 15px 10px;
+      @include hovered_list_item;
+      @include font_default(20px);
+
+      &:hover {
+        background-color: #dfe4ea;
+        @include font_default(20px, bold);
+      }
+    }
+  }
+
+  &__workplace {
+    background-color: #f5f6fa;
+    height: 100%;
+    width: 80%;
+  }
+}

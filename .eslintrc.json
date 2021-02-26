@@ -23,7 +23,10 @@
     "react/prop-types": 0,
     "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
     "react/display-name": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "react/destructuring-assignment": "off",
+    "no-plusplus": "off"
+    // "react/jsx-props-no-spreading": "off"
     // "import/parser": "babel-eslint"
   }
 }

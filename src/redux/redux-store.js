@@ -1,12 +1,12 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import postsReducer from './posts-reducer';
-import dialogsReducer from './dialogs-reducer';
-// import navReducer from './nav-reducer';
-import usersReducer from './users-reducer';
-import appReducer from './app-reducer';
-import authReducer from './auth-reducer';
 import thunkMiddleware from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import postsReducer from './posts-reducer.ts';
+import dialogsReducer from './dialogs-reducer.ts';
+// import navReducer from './nav-reducer';
+import usersReducer from './users-reducer.ts';
+import appReducer from './app-reducer.ts';
+import authReducer from './auth-reducer.ts';
 
 const reducers = combineReducers({
   postsPage: postsReducer,

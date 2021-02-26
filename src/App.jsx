@@ -11,16 +11,17 @@ import { connect, Provider } from 'react-redux';
 import { compose } from 'redux';
 import { withSuspense } from './hoc/withSuspense';
 import store from './redux/redux-store';
-import './App.css';
+import './App.scss';
 
 import Nav from './components/Nav/Nav.jsx';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import HeaderContainer from './components/Header/HeaderContainer';
-import Login from './components/Login/Login';
+import LoginContainer from './components/Login/LoginContainer';
 import Preloader from './components/Common/Preloader/Preloader';
 import Page404 from './components/Page404/Page404';
+import SettingsContainer from './components/Settings/SettingsContainer';
 
 const Profile = lazy(() => import('./components/Profile/Profile'));
 const DialogsContainer = lazy(() =>
@@ -65,8 +66,8 @@ class App extends React.Component {
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
           <Route path="/users" render={withSuspense(UsersContainer)} />
-          <Route path="/settings" render={() => <Settings />} />
-          <Route path="/login" render={() => <Login />} />
+          <Route path="/settings" render={() => <SettingsContainer />} />
+          <Route path="/login" render={() => <LoginContainer />} />
           <Route path="*" render={() => <Page404 />} />
         </Switch>
       </div>
@@ -74,17 +75,17 @@ class App extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
 });
 
 // Оборачиваем в withRouter для улучшения роутинга
-let AppContainer = compose(
+const AppContainer = compose(
   withRouter,
   connect(mapStateToProps, { initializeApp })
 )(App);
 
-let SocialNetworkApp = () => {
+const SocialNetworkApp = () => {
   return (
     <BrowserRouter>
       <Provider store={store}>
